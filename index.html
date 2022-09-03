@@ -9,6 +9,7 @@
 <body>
     <script>
 
+
       let playerScore = 0;
       let computerScore = 0;
 
@@ -23,10 +24,9 @@
       
 
 
-
+      // Starts game
       function game() {
       
-
       for( let i = 0; i < 5; i++ ) {
         // Asks player && computerSelection
       let playerPick = prompt("rock, paper or scissors?");
@@ -74,6 +74,8 @@
         return "Its Draw!"
       } 
     }
+
+      // declares winner and adds score to winner. Returns message with current scores.
       function declareWinner(playerSelection, computerSelection) {
         if(playerSelection < computerSelection) {
           return `playerScore is ${++playerScore}\n computerScore is ${computerScore}`
@@ -84,14 +86,8 @@
         }
      }
   
-     
-     
-     
      game()
-     
-
-     
-
+    
     </script>
 </body>
 </html>
