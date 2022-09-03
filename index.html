@@ -19,13 +19,44 @@
         const computerPick = myArray[Math.floor(Math.random() * myArray.length)]
         return computerPick;
       }
-      // Asks player && computerSelection
+      
+      
+
+
+
+      function game() {
+      
+
+      for( let i = 0; i < 5; i++ ) {
+        // Asks player && computerSelection
       let playerPick = prompt("rock, paper or scissors?");
       let computerSelection = getComputerChoice();
       // Makes playerSelection to case-insensitive
-      let playerSelection = playerPick.toLowerCase( );
-      
-      
+      let playerSelection = playerPick.toLowerCase();
+        console.log(playRound(playerSelection, computerSelection));
+      console.log(declareWinner(playerSelection, computerSelection));
+
+      if(playerScore === computerScore) {
+        continue;
+
+        } else if (playerScore > computerScore) {
+          alert("You WON!");
+        } else if(computerScore > playerScore) {
+          alert("You LOST!");
+        }
+      }
+      // Ask if player want play again if yes then resets score and starts new game
+      let newGame = prompt("Do you want to play another round? (y/n)");
+      if (newGame === "y") {
+        computerScore = 0;
+        playerScore = 0;
+        game();
+      } else {
+       alert("Thanks for playing!");
+      }
+     }
+
+
       // Plays single round and declares winner
      function playRound(playerSelection, computerSelection) {
       // If playerSelection wins then message
@@ -42,19 +73,24 @@
       } else {
         return "Its Draw!"
       } 
-     }
-     
-     function declareWinner(playerSelection, computerSelection) {
-        if(playerSelection > computerSelection) {
+    }
+      function declareWinner(playerSelection, computerSelection) {
+        if(playerSelection < computerSelection) {
           return `playerScore is ${++playerScore}\n computerScore is ${computerScore}`
-        } else if(computerSelection > playerSelection) {
+        } else if(computerSelection < playerSelection) {
           return `playerScore is ${playerScore}\n computerScore is ${++computerScore}`
         } else {
           return `playerScore is ${playerScore}\n computerScore is ${computerScore}`
         }
      }
-     console.log(declareWinner(playerSelection, computerSelection))
+  
+     
+     
+     
+     game()
+     
 
+     
 
     </script>
 </body>
