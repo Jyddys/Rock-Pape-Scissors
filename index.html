@@ -9,6 +9,8 @@
 <body>
     <script>
 
+      let playerScore = 0;
+      let computerScore = 0;
 
         // Gets random value between rock paper scissors and returns value to getcomputerChoice
       const myArray = ["rock", "paper", "scissors"];
@@ -41,7 +43,17 @@
         return "Its Draw!"
       } 
      }
-     console.log(playRound(playerSelection, computerSelection))
+     
+     function declareWinner(playerSelection, computerSelection) {
+        if(playerSelection > computerSelection) {
+          return `playerScore is ${++playerScore}\n computerScore is ${computerScore}`
+        } else if(computerSelection > playerSelection) {
+          return `playerScore is ${playerScore}\n computerScore is ${++computerScore}`
+        } else {
+          return `playerScore is ${playerScore}\n computerScore is ${computerScore}`
+        }
+     }
+     console.log(declareWinner(playerSelection, computerSelection))
 
 
     </script>
