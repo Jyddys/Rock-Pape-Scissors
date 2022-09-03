@@ -4,23 +4,41 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rpck Paper Scissors</title>
+  <title>Rock Paper Scissors</title>
 </head>
 <body>
     <script>
 
-      const myArray = ["rock", "paper", "scissors"];
-      const computerPick = myArray[Math.floor(Math.random() * myArray.length)]
 
+        // Gets random value between rock paper scissors and returns it
+      const myArray = ["rock", "paper", "scissors"];
+     
       function getComputerChoice() {
         const computerPick = myArray[Math.floor(Math.random() * myArray.length)]
         return computerPick;
       }
+
+      let computerSelection = getComputerChoice();
+      let playerSelection = "scissors";
       
-      console.log(getComputerChoice())
-
-
-
+      // Plays single round and declares winner
+     function playRound(playerSelection, computerSelection) {
+      // if playerSelection wins then message
+      if((playerSelection == "rock" && computerSelection == "scissors" )
+       || (playerSelection == "scissors" && computerSelection == "paper") 
+       || (playerSelection == "paper" && computerSelection == "rock")) {
+        return `You won!\n ${playerSelection} beats ${computerSelection}`;
+      // if computerSelection wins then message
+      } else if((computerSelection == "rock" && playerSelection == "scissors")
+       || (computerSelection == "scissors" && playerSelection == "paper") 
+       || (computerSelection == "paper" && playerSelection == "rock") ) {
+        return `You lost!\n ${computerSelection} beats ${playerSelection}`;
+        // if both same then message
+      } else {
+        return "Its Draw!"
+      } 
+     }
+     console.log(playRound(playerSelection, computerSelection))
 
 
     </script>
